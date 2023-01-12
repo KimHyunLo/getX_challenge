@@ -24,11 +24,11 @@ class _SignupPageState extends State<SignupPage> {
 
   checkUserEmail() async {
     try {
-      var responce = await http
+      var response = await http
           .post(Uri.parse(API.validateEmail), body: {'user_email': emailController.text.trim()});
 
-      if (responce.statusCode == 200) {
-        var responseBody = jsonDecode(responce.body);
+      if (response.statusCode == 200) {
+        var responseBody = jsonDecode(response.body);
 
         if (responseBody['existEmail'] == true) {
           Fluttertoast.showToast(msg: "Email is already in use. Please try another email");
